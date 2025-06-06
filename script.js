@@ -39,18 +39,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form submission
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would typically send the data to a server
-            console.log('Form submitted:', data);
-            
-            // Show success message
-            alert('Message envoyé avec succès!');
-            contactForm.reset();
+        contactForm.addEventListener('submit', function (e) {
+            let valid = true;
+            // Remove previous errors
+            contactForm.querySelectorAll('.form-error').forEach(el => el.remove());
+            // Name
+            const name = contactForm.name.value.trim();
+            if (!name) {
+                showError(contactForm.name, 'Veuillez entrer votre nom.');
+                valid = false;
+            }
+            // Email
+            const email = contactForm.email.value.trim();
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                showError(contactForm.email, 'Veuillez entrer un email valide.');
+                valid = false;
+            }
+            // Message
+            const message = contactForm.message.value.trim();
+            if (!message) {
+                showError(contactForm.message, 'Veuillez entrer un message.');
+                valid = false;
+            }
+            if (!valid) {
+                e.preventDefault();
+            } else {
+                // Optionnel : message de succès (avant redirection Formspree)
+                // alert('Message envoyé !');
+            }
         });
+    }
+
+    function showError(input, msg) {
+        const error = document.createElement('div');
+        error.className = 'form-error';
+        error.style.color = '#dc2626';
+        error.style.fontSize = '0.95rem';
+        error.style.marginTop = '0.3rem';
+        error.textContent = msg;
+        input.parentNode.appendChild(error);
     }
 
     // Navbar scroll effect

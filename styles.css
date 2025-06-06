@@ -36,6 +36,10 @@ body {
     transition: var(--transition);
 }
 
+.cv-download-btn{
+    color: var(--text-color);
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -335,6 +339,22 @@ h2::after {
     color: white;
 }
 
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 1.05rem;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+.project-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -576,12 +596,25 @@ footer {
     font-size: 1rem;
     border: 1px solid var(--primary-color);
     font-weight: 500;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s, transform 0.3s;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInUp 0.7s forwards;
 }
 .skill-tags span:hover {
     background: var(--primary-color);
     color: #fff;
+    transform: translateY(-3px) scale(1.05);
 }
+.skill-tags span:nth-child(1) { animation-delay: 0.05s; }
+.skill-tags span:nth-child(2) { animation-delay: 0.12s; }
+.skill-tags span:nth-child(3) { animation-delay: 0.19s; }
+.skill-tags span:nth-child(4) { animation-delay: 0.26s; }
+.skill-tags span:nth-child(5) { animation-delay: 0.33s; }
+.skill-tags span:nth-child(6) { animation-delay: 0.40s; }
+.skill-tags span:nth-child(7) { animation-delay: 0.47s; }
+.skill-tags span:nth-child(8) { animation-delay: 0.54s; }
+.skill-tags span:nth-child(9) { animation-delay: 0.61s; }
 
 /* PARCOURS / TIMELINE */
 .path {
@@ -745,4 +778,28 @@ footer {
 }
 .about-info-card:hover i {
     color: #fff;
-} 
+}
+
+.timeline-item, .project-card, .cert-card, .about-info-card, .contact-card, .header-banner, .header-content, .about-content, .contact-form-wrapper {
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+}
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.cert-card:nth-child(1) { animation-delay: 0.1s; }
+.cert-card:nth-child(2) { animation-delay: 0.2s; }
+.cert-card:nth-child(3) { animation-delay: 0.3s; }
+.cert-card:nth-child(4) { animation-delay: 0.4s; }
+.about-info-card:nth-child(1) { animation-delay: 0.1s; }
+.about-info-card:nth-child(2) { animation-delay: 0.2s; }
+.about-info-card:nth-child(3) { animation-delay: 0.3s; }
+.contact-card:nth-child(1) { animation-delay: 0.1s; }
+.contact-card:nth-child(2) { animation-delay: 0.2s; }
+.header-banner { animation-delay: 0.05s; }
+.header-content { animation-delay: 0.1s; }
+.about-content { animation-delay: 0.15s; }
+.contact-form-wrapper { animation-delay: 0.2s; } 
